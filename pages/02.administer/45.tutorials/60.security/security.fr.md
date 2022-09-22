@@ -67,6 +67,13 @@ C'est géré par un paramètre système, qui se charge de configurer les service
 sudo yunohost settings set security.ssh.port -v <votre_numero_de_port_ssh>
 ```
 
+Il existe une liste de port connus numérotés de [0 à 1023](https://fr.wikipedia.org/wiki/Liste_de_ports_logiciels), vous ne pouvez donc pas choisir un numéro de port inférieur ou égal à 1023.
+De même le numéro de port maximum autorisé pour un port est 65535. 
+
+Par défaut et par sécurité, le port que vous allez configurer ne sera pas ouvert sur votre pare-feu, il faudra l'ouvrir manuellement via le portail de configuration Yunohost dans la section Outils > Pare-feu.
+Là il vous faudra créer une nouvelle opération qui ouvrira le port que vous avez choisi en TCP, et choisir IPV4 et/ou IPV6 selon votre configuration.
+De la même manière vous pouvez désactiver le port 22.
+
 **Lors de la prochaine connexion SSH**, vous devrez ajouter le paramètre `-p` suivi du port SSH.
 
 **Exemple**:
